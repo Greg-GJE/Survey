@@ -1,4 +1,4 @@
-##Purpose of the application
+# Purpose of the application
 
 This is a basic application that will analyse the results of any dataset (including the survey ones) and it will display some basic details regarding the dataset.
 
