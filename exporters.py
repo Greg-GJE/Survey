@@ -113,6 +113,14 @@ class FileExporter(DataExporter):
             fp.write('\nTop Correlations\n')
             fp.write("-------------------\n\n")
             correlation_results = self._analyzer.top_correlations
+            cur_val = 0
+            top_pair = None
             for col_pairs, value in correlation_results.items():
                 (column1, column2) = col_pairs
+                if value > cur_val:
+                        cur_val = value
+                        top_pair = col_pairs
                 fp.write(f'{column1:20}{column2:20}{value}\n')
+            if top_pair is not None:
+                fp.write(f"\nThere is a strong similarity between {top_pair[0]} and {top_pair[1]}")
+
