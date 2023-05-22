@@ -1,4 +1,4 @@
 .vscode/
-pass.txt
+*.txt
 *.csv
 __pycache__/
