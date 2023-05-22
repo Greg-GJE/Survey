@@ -14,7 +14,7 @@ if __name__ == '__main__':
     dataset_location = input('Enter the location of the dataset file: ')
     importer = DataImporter(dataset_location)
 
-    if importer.import_status == constants.NOT_FOUND:
+    if importer.import_status != constants.IMPORTED:
         sys.exit(1)
     else:
         dataset_analyzer = Analyzer(importer)
