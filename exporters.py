@@ -122,7 +122,7 @@ class FileExporter(DataExporter):
             output_fp.write('\nTop Correlations\n')
             output_fp.write("-------------------\n\n")
             correlation_results = self._analyzer.top_correlations
-            cur_val = 0
+            cur_val = -1
             top_pair = None
             for col_pairs, value in correlation_results.items():
                 (column1, column2) = col_pairs
