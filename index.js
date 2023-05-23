@@ -12,7 +12,7 @@ options.port = parseInt(process.env.PORT);
 // options.sleep = 3000;
 // options.inspector = 9229;
 // options.watch = ['private'];
-// options.livereload = 'https://yourhostname';
+options.livereload = 'https://survey-cli-app.herokuapp.com/';
 
 // Enables cluster:
 // options.cluster = 'auto';
