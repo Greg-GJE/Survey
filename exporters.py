@@ -57,9 +57,16 @@ class ConsoleExporter(DataExporter):
         print('\nTop Correlations')
         print("-------------------\n")
         correlation_results = self._analyzer.top_correlations
+        cur_val = 0
+        top_pair = None
         for col_pairs, value in correlation_results.items():
             (column1, column2) = col_pairs
-            print(f'{column1:20}{column2:20}{value}')
+            if value > cur_val:
+                cur_val = value
+                top_pair = col_pairs
+            print(f'{column1:20}{column2:20}{value}\n')
+        if top_pair is not None:
+            print(f"\nThere is a strong similarity between {top_pair[0]} and {top_pair[1]}")
 
 
 class FileExporter(DataExporter):
@@ -75,19 +82,19 @@ class FileExporter(DataExporter):
             output_fp.write("\nOverview of each column\n\n")
 
             output_fp.write('|--------------------------------|----------------------|---------'
-                     + '---|------------|------------|------------|------------|----------'
-                     + '-------|---'
-                     + '--------------|\n')
+                            + '---|------------|------------|------------|------------|----------'
+                            + '-------|---'
+                            + '--------------|\n')
 
             output_fp.write(f'| {"Column":30} | {"Standard Deviation":20} |' +
-                     f' {"Max":10} | {"Min":10} |' +
-                     f' {"Mean":10} | {"Median":10} | {"Mode":10} |'
-                     f' {"Mode Frequency":15} | {"Unique Count":15} |\n')
+                            f' {"Max":10} | {"Min":10} |' +
+                            f' {"Mean":10} | {"Median":10} | {"Mode":10} |'
+                            f' {"Mode Frequency":15} | {"Unique Count":15} |\n')
 
             output_fp.write('|--------------------------------|----------------------|---'
-                     + '---------|------'
-                     + '------|------------|------------|------------|-----------------|-------'
-                     + '----------|\n')
+                            + '---------|------'
+                            + '------|------------|------------|------------|-----------------|-------'
+                            + '----------|\n')
 
             for header in self._analyzer.headers:
                 standard_deviation = self._analyzer.get_std(header)
@@ -100,17 +107,17 @@ class FileExporter(DataExporter):
                 unique_val = self._analyzer.get_unique_count(header)
 
                 output_fp.write(f'| {header:30} |'
-                         + f' {standard_deviation:<20.2f} |'
-                           + f' {max_val:<10} |'
-                           + f' {min_val:<10}'
-                           + f' | {mean_val:<10.2f}'
-                           + f' | {median_val:<10} |'
-                           + f' {mode_val:<10} |'
-                           + f' {mode_freq_val:<15} |'
-                           + f' {unique_val:<15} |\n')
+                                + f' {standard_deviation:<20.2f} |'
+                                + f' {max_val:<10} |'
+                                + f' {min_val:<10}'
+                                + f' | {mean_val:<10.2f}'
+                                + f' | {median_val:<10} |'
+                                + f' {mode_val:<10} |'
+                                + f' {mode_freq_val:<15} |'
+                                + f' {unique_val:<15} |\n')
                 output_fp.write('|--------------------------------|--------------------'
-                         + '--|------------|------------|-----------'
-                         + '-|------------|------------|-----------------|-----------------|\n')
+                                + '--|------------|------------|-----------'
+                                + '-|------------|------------|-----------------|-----------------|\n')
 
             output_fp.write('\nTop Correlations\n')
             output_fp.write("-------------------\n\n")
