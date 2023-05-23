@@ -11,7 +11,8 @@ colorama.init(autoreset=True)
 
 
 if __name__ == '__main__':
-    dataset_location = input('Enter the location of the dataset file: ')
+    print('Importing the real estate data')
+    dataset_location = './realest.csv'
     importer = DataImporter(dataset_location)
 
     if importer.import_status != constants.IMPORTED:
