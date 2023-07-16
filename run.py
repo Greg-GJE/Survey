@@ -6,8 +6,6 @@ from importers import DataImporter
 from analyzers import Analyzer
 from exporters import ConsoleExporter, FileExporter
 
-
-
 colorama.init(autoreset=True)
 
 

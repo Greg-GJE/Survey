@@ -2,6 +2,7 @@ import pandas as pd
 
 import constants
 
+
 class DataImporter:
 
     def __init__(self, file_location):

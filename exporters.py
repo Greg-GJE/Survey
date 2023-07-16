@@ -66,7 +66,8 @@ class ConsoleExporter(DataExporter):
                 top_pair = col_pairs
             print(f'{column1:20}{column2:20}{value}\n')
         if top_pair is not None:
-            print(f"\nThere is a strong similarity between {top_pair[0]} and {top_pair[1]}")
+            print(
+                f"\nThere is a strong similarity between {top_pair[0]} and {top_pair[1]}")
 
 
 class FileExporter(DataExporter):
