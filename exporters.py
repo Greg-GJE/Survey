@@ -42,10 +42,10 @@ class ConsoleExporter(DataExporter):
             unique_val = self._analyzer.get_unique_count(header)
 
             print(f'{Fore.YELLOW}| {Style.RESET_ALL}{header:30} {Fore.YELLOW}|'
-                  + f' {Style.RESET_ALL}{standard_deviation:<20.2f} {Fore.YELLOW}|'
+                  + f' {Style.RESET_ALL}{standard_deviation:<20.2} {Fore.YELLOW}|'
                     + f' {Style.RESET_ALL}{max_val:<10} {Fore.YELLOW}|'
                     + f' {Style.RESET_ALL}{min_val:<10}'
-                    + f' {Fore.YELLOW}| {Style.RESET_ALL}{mean_val:<10.2f}'
+                    + f' {Fore.YELLOW}| {Style.RESET_ALL}{mean_val:<10.2}'
                     + f' {Fore.YELLOW}| {Style.RESET_ALL}{median_val:<10} {Fore.YELLOW}|'
                     + f' {Style.RESET_ALL}{mode_val:<10} {Fore.YELLOW}|'
                     + f' {Style.RESET_ALL}{mode_freq_val:<15} {Fore.YELLOW}|'
@@ -108,10 +108,10 @@ class FileExporter(DataExporter):
                 unique_val = self._analyzer.get_unique_count(header)
 
                 output_fp.write(f'| {header:30} |'
-                                + f' {standard_deviation:<20.2f} |'
+                                + f' {standard_deviation:<20.2} |'
                                 + f' {max_val:<10} |'
                                 + f' {min_val:<10}'
-                                + f' | {mean_val:<10.2f}'
+                                + f' | {mean_val:<10.2}'
                                 + f' | {median_val:<10} |'
                                 + f' {mode_val:<10} |'
                                 + f' {mode_freq_val:<15} |'
