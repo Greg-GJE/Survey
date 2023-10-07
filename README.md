@@ -1,4 +1,8 @@
-# Purpose of the application
+# Python Survey App
+
+![Application Image](./assets/all-devices-black.png)
+
+## Features
 
 This is a basic application that will analyse the results of any dataset (including the survey ones) and it will display some basic details regarding the dataset.
 
