@@ -14,7 +14,12 @@ Finally it outputs the results to an output file, which is specified by the user
 
 The application can handle datasets in the form of csv. Since the data can be of any form, as a result certain basic parameters are being considered while building the application.
 
-**How to run the application?**
+- **Getting the user link**
+    Here the user enters a link to the csv file and the application produces the analysis of the various parameters of the file, to give insights regarding the data
+
+    ![Console output](./assets/working.png)
+
+## How to run the application?
 
 1. Make sure you have python version `3.6+` installed in your system.
 2. Run the command `pip install -r requirements.txt`
