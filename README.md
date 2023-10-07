@@ -24,3 +24,6 @@ The application can handle datasets in the form of csv. Since the data can be of
 1. Make sure you have python version `3.6+` installed in your system.
 2. Run the command `pip install -r requirements.txt`
 3. Run the command `python main.py`
+
+## Live Deployment Link
+https://github.com/Greg-GJE/Survey
