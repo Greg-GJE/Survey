@@ -26,4 +26,4 @@ The application can handle datasets in the form of csv. Since the data can be of
 3. Run the command `python main.py`
 
 ## Live Deployment Link
-https://github.com/Greg-GJE/Survey
+https://survey-cli-app.herokuapp.com/
