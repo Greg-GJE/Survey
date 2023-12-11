@@ -6,6 +6,8 @@ from analyzers import Analyzer
 import constants
 
 
+
+
 class TestImporter(unittest.TestCase):
 
     def test_importer_with_no_file(self):

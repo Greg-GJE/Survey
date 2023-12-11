@@ -1,6 +1,6 @@
 {
-	"pid": 53041,
-	"date": "2023-10-07T05:52:10.397Z",
+	"pid": 61982,
+	"date": "2023-12-07T04:31:28.313Z",
 	"port": 8000,
 	"ip": "0.0.0.0",
 	"stats": [
@@ -11,12 +11,12 @@
 				"total": "4",
 				"app": "1.0.0"
 			},
-			"pid": 53041,
+			"pid": 61982,
 			"thread": "",
 			"mode": "release",
 			"overload": 0,
-			"date": "2023-10-07T06:04:10.459Z",
-			"memory": 8.19,
+			"date": "2023-12-07T04:45:28.378Z",
+			"memory": 7.26,
 			"rm": 0,
 			"fm": 0,
 			"wm": 0,
@@ -31,15 +31,15 @@
 			"dbrm": 0,
 			"dbwm": 0,
 			"usage": 0,
-			"requests": 5,
+			"requests": 1,
 			"pending": 0,
 			"external": 0,
 			"errors": 0,
 			"timeouts": 0,
 			"online": 0,
-			"uptime": 13,
+			"uptime": 15,
 			"download": 0,
-			"upload": 0.024
+			"upload": 0.001
 		}
 	]
 }
