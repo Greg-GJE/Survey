@@ -7,7 +7,6 @@ import os
 port = int(os.environ.get('PORT', 8501))
 st.port = port
 
-
 st.set_page_config(layout='wide')
 
 
@@ -15,8 +14,9 @@ def main():
     st.title("Data Analyzer")
 
     # Create a file uploader widget
-    uploaded_file = st.file_uploader("Please upload the dataset (preferably in csv or excel format)",
-                                     type=["csv", "xlsx"], accept_multiple_files=False)
+    uploaded_file = st.file_uploader(
+        "Please upload the dataset (preferably in csv or excel format)", type=[
+            "csv", "xlsx"], accept_multiple_files=False)
 
     # Check if a file has been uploaded
 
@@ -40,13 +40,15 @@ def main():
             else:
                 st.write("Unable to display information from the csv file")
     except TypeError:
-        st.error("The given file cannot be parsed for analysis. Please use another file.")
+        st.error(
+            "The given file cannot be parsed for analysis. Please use another file.")
     except pd.errors.EmptyDataError:
         st.error("The given file is empty. Please use another file.")
     except pd.errors.ParserError:
         st.error("The given file cannot be parsed. Please use another file.")
     except ValueError:
-        st.error("The given file cannot be parsed for analysis. Please use another file.")
+        st.error(
+            "The given file cannot be parsed for analysis. Please use another file.")
 
 
 if __name__ == "__main__":

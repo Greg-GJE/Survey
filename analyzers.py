@@ -26,7 +26,7 @@ class Analyzer:
         '''Get diagonal and lower triangular pairs of correlation matrix'''
         pairs_to_drop = set()
         for i in range(0, self._data.shape[1]):
-            for j in range(0, i+1):
+            for j in range(0, i + 1):
                 pairs_to_drop.add((self._headers[i], self._headers[j]))
         return pairs_to_drop
 
