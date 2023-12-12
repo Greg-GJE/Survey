@@ -2,6 +2,11 @@ import streamlit as st
 import pandas as pd
 
 import utils
+import os
+
+port = int(os.environ.get('PORT', 8501))
+st.port = port
+
 
 st.set_page_config(layout='wide')
 
@@ -34,7 +39,13 @@ def main():
                 utils.display_user_choice(dataframe=display_df)
             else:
                 st.write("Unable to display information from the csv file")
-    except Exception:
+    except TypeError:
+        st.error("The given file cannot be parsed for analysis. Please use another file.")
+    except pd.errors.EmptyDataError:
+        st.error("The given file is empty. Please use another file.")
+    except pd.errors.ParserError:
+        st.error("The given file cannot be parsed. Please use another file.")
+    except ValueError:
         st.error("The given file cannot be parsed for analysis. Please use another file.")
 
 

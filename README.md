@@ -2,22 +2,52 @@
 
 ![Application Image](./assets/all-devices-black.png)
 
+This web application is designed to seamlessly analyze datasets provided in either `.csv` or `.xlsx` formats. Once a
+dataset file is successfully uploaded, the application will present comprehensive statistical insights derived from the
+data. Additionally, users can dynamically interact with the dataset, exploring and manipulating the information based on
+its inherent parameters.
+
 ## Features
 
-This is a basic application that will analyse the results of any dataset (including the survey ones) and it will display some basic details regarding the dataset.
 
-It will show the most frequent values of each parameter in the dataset along with the number of times that value has come in the dataset, which can be useful for analysis.
+- **User can upload the file:**
 
-Along with this, it also finds the correlation among the parameters and based on that determines which parameters are dependent on each other, with a higher correlation it is easier to understand the factors that result in the value of a certain parameter.
+  In this user-friendly application, file uploading functionality is seamlessly integrated, supporting the widely adopted `.csv` and `.xlsx` formats—both renowned for efficiently storing structured and unstructured data. Users can effortlessly upload their files, ensuring a smooth and versatile experience with diverse data types.
+  
+    ![User Input](./assets/user_input.png)
 
-Finally it outputs the results to an output file, which is specified by the user.
 
-The application can handle datasets in the form of csv. Since the data can be of any form, as a result certain basic parameters are being considered while building the application.
+- **Display of basic statistics:**
 
-- **Getting the user link**
-    Here the user enters a link to the csv file and the application produces the analysis of the various parameters of the file, to give insights regarding the data
+  The application not only showcases a sample preview of the uploaded dataset but goes above and beyond by providing detailed statistics for each parameter. This comprehensive presentation ensures users gain a thorough understanding of the dataset, enhancing their overall experience and insights.
+  ![Display Statistics](./assets/stats_display.png)
 
-    ![Console output](./assets/working.png)
+
+- **Displaying correlation heatmap:**
+
+  Furthermore, the application visually enhances data comprehension by presenting a correlation heatmap for all parameters within the dataset. This graphical representation facilitates a clear understanding of the relationships and correlations among various dataset parameters, empowering users with valuable insights.
+  ![Display Correlation](./assets/correlation.png)
+
+
+- **User can interact with parameters:**
+
+  Empowering users with flexibility, the application allows them to selectively choose parameters of interest, generating insightful distribution plots (dist-plots) for a deeper understanding of each selected parameter's distribution within the dataset.
+  ![Dist Plot](./assets/dist_plot.png)
+
+## Testing the application
+
+Comprehensive unit tests have been meticulously crafted within the application to ensure thorough validation of its functionality. These tests can be executed effortlessly using the following command:
+```
+python -m unittest tests.py
+```
+Following has been the output after running the above command:
+
+![Test output](./assets/test_out.png)
+
+
+## Unfixed Bugs
+
+There are no unfixed bugs reported in the project. The application runs smoothly without errors, ensuring a seamless user experience.
 
 ## How to run the application?
 
@@ -26,4 +56,5 @@ The application can handle datasets in the form of csv. Since the data can be of
 3. Run the command `python main.py`
 
 ## Live Deployment Link
+
 https://survey-cli-app.herokuapp.com/

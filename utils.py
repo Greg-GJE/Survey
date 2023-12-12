@@ -1,33 +1,32 @@
 import numpy as np
 import plotly.figure_factory as ff
 import plotly.express as px
-import pandas as pd
 import streamlit as st
 
 
-def display_dataframe(dataframe: pd.DataFrame, column):
+def display_dataframe(dataframe, column):
     column.write("### Details of the data")
     column.dataframe(dataframe)
 
 
-def display_basic_statistics(dataframe: pd.DataFrame, column):
+def display_basic_statistics(dataframe, column):
     column.write("### Basic Statistics")
     column.write(dataframe.describe())
 
 
-def display_stats(dataframe: pd.DataFrame):
+def display_stats(dataframe):
     col1, col2 = st.columns(2)
     display_dataframe(dataframe, col1)
     display_basic_statistics(dataframe, col2)
 
 
-def display_diagrams(dataframe: pd.DataFrame):
+def display_diagrams(dataframe):
     # selecting numeric inputs
     numeric_data = dataframe.select_dtypes(include=np.number)
     display_correlation(numeric_data)
 
 
-def display_correlation(dataframe: pd.DataFrame, column):
+def display_correlation(dataframe, column):
     correlation_matrix = dataframe.corr()
 
     column.write("### Correlation Heatmap")
@@ -35,7 +34,7 @@ def display_correlation(dataframe: pd.DataFrame, column):
     column.plotly_chart(fig, use_container_width=True)
 
 
-def display_user_choice(dataframe: pd.DataFrame):
+def display_user_choice(dataframe):
     numeric_data = dataframe.select_dtypes(include=np.number)
     col1, col2 = st.columns(2)
     col1.write('### Parameter wise dist plot')

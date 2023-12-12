@@ -1,1 +1,1 @@
-web: node index.js
+web: streamlit run --server.port $PORT run.py
