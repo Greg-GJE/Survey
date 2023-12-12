@@ -1,56 +1,42 @@
-import colorama
-import requests
-import sys
+import streamlit as st
+import pandas as pd
 
-import constants
-from importers import DataImporter
-from analyzers import Analyzer
-from exporters import ConsoleExporter, FileExporter
+import utils
 
-colorama.init(autoreset=True)
+st.set_page_config(layout='wide')
 
 
-if __name__ == '__main__':
+def main():
+    st.title("Data Analyzer")
 
-    url = input('Enter the URL for the dataset file (preferably csv): ')
-    file_name = input('Enter the name of the file to save: ')
+    # Create a file uploader widget
+    uploaded_file = st.file_uploader("Please upload the dataset (preferably in csv or excel format)",
+                                     type=["csv", "xlsx"], accept_multiple_files=False)
+
+    # Check if a file has been uploaded
 
     try:
-        r = requests.get(url, allow_redirects=True, timeout=20)
-        content_type = r.headers.get('Content-Type')
+        if uploaded_file is not None:
+            st.success("Here are the details!")
 
-        if 'text/csv' in content_type:
-            with open(file_name, 'wb') as fw:
-                fw.write(r.content)
+            display_df = None
 
-            print('Importing the real estate data')
-            dataset_location = file_name
-            importer = DataImporter(dataset_location)
+            if uploaded_file.type == "text/xlsx":
+                display_df = pd.read_excel(uploaded_file)
 
-            if importer.import_status != constants.IMPORTED:
-                sys.exit(1)
+            elif uploaded_file.type == "text/csv":
+                display_df = pd.read_csv(uploaded_file)
+
+            if display_df is not None:
+
+                utils.display_stats(display_df)
+                display_df.dropna(inplace=True)
+                utils.display_user_choice(dataframe=display_df)
             else:
-                dataset_analyzer = Analyzer(importer)
-                print(f'\nHere are the details for the file: {importer.file}\n')
+                st.write("Unable to display information from the csv file")
+    except Exception:
+        st.error("The given file cannot be parsed for analysis. Please use another file.")
 
-                console = ConsoleExporter(dataset_analyzer)
-                console.export()
 
-                print()
-                choice = input('Do you want to export the data (Y/N)?')
-
-                # if the choice is either y or yes
-                if choice.lower() in ['y', 'yes']:
-                    output_file_loc = input('Enter the location of the output file: ')
-                    file_exporter = FileExporter(dataset_analyzer, output_file_loc)
-                    file_exporter.export()
-                    print(f'Successfully exported to file {output_file_loc}')
-
-                print('\nThanks for trying out the application.')
-        else:
-            print('The given format of the response is not a csv file! Please give appropriate data!')
-
-    except requests.exceptions.MissingSchema:
-        print('Invalid URL! Please enter correct url and try again.')
-        sys.exit(1)
-
+if __name__ == "__main__":
+    main()

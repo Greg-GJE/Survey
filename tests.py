@@ -6,8 +6,6 @@ from analyzers import Analyzer
 import constants
 
 
-
-
 class TestImporter(unittest.TestCase):
 
     def test_importer_with_no_file(self):
@@ -26,7 +24,7 @@ class TestImporter(unittest.TestCase):
         input_file = './test_assets/realest.csv'
         importer = DataImporter(input_file)
         self.assertEqual(importer.import_status,
-                         constants.IMPORTED,  "Should be imported")
+                         constants.IMPORTED, "Should be imported")
 
     def test_import_with_incorrect_file(self):
         input_file = './test_assets/wrong.py'
@@ -36,7 +34,6 @@ class TestImporter(unittest.TestCase):
 
 
 class TestAnalyzer(unittest.TestCase):
-
     IMPORTER = DataImporter('./test_assets/realest.csv')
     ANALYZER = Analyzer(IMPORTER)
 
