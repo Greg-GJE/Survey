@@ -53,7 +53,7 @@ There are no unfixed bugs reported in the project. The application runs smoothly
 
 1. Make sure you have python version `3.6+` installed in your system.
 2. Run the command `pip install -r requirements.txt`
-3. Run the command `python main.py`
+3. Run the command `python -m streamlit run run.py`
 
 ## Live Deployment Link
 
